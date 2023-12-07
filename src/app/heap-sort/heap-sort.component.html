@@ -1,0 +1,24 @@
+<div class="event-container">
+  <h2>LISTA DE EVENTOS</h2>
+  <ul>
+    <li *ngFor="let event of events">{{ event.name }} - {{ formatTimestamp(event.timestamp) }}</li>
+  </ul>
+
+  <h2>LISTA DE ORDEM DOS EVENTOS DO ANO</h2>
+  <ul>
+    <li *ngFor="let event of sortedEvents">{{ event.name }} - {{ formatTimestamp(event.timestamp) }}</li>
+  </ul>
+</div>
+
+<div class="add-event-form">
+  <h2>ADICIONAR NOVO EVENTO</h2>
+  <form (submit)="addEvent()">
+    <label for="eventName">NOME DO EVENTO:</label>
+    <input type="text" id="eventName" required [(ngModel)]="newEventName">
+
+    <label for="eventTimestamp">DATA DO EVENTO:</label>
+    <input type="date" id="eventTimestamp" required [(ngModel)]="newEventTimestamp">
+
+    <button type="submit">ADICIONAR EVENTO</button>
+  </form>
+</div>
